@@ -61,12 +61,16 @@ export let loginForm = {
 ## Example Component
 
 ```tsx
-// components/Login/index.ts
+// components/Login/index.tsx
 import React from 'react'
 import { connect, Connect } from '../../app'
 
 const Login: React.StatelessComponent<Connect> = ({ app }) => (
-  <form onClick={e => e.preventDefault()}>
+  <form
+    onSubmit={e => {
+      e.preventDefault()
+      app.actions.login.formSubmitted()
+    }}>
     <input
       className={app.login.email.showError ? 'error' : ''}
       value={app.login.email.value}
@@ -82,7 +86,7 @@ const Login: React.StatelessComponent<Connect> = ({ app }) => (
       value={app.login.password.value}
       type="password"
       onChange={e =>
-        app.form.setField({
+        app.actions.form.setField({
           field: app.login.password,
           value: e.target.value
         })

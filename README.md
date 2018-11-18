@@ -25,7 +25,7 @@ import { namespaced } from 'overmind/es/config'
 import { TConnect, createConnect } from 'overmind-react'
 
 import * as login from './modules/login'
-import * as form from 'overmind-forms' // add this line
+import form from 'overmind-forms' // add this line
 
 const config = namespaced({
   login,
@@ -47,8 +47,7 @@ The following example shows creating a form in login module
 
 ```ts
 // modules/login/state.ts
-import formField from 'overmind-forms/formField'
-import isValid from 'overmind-forms/isValid'
+import { formField, isValid } from 'overmind-forms'
 import { isEmail } from 'validator'
 
 export let loginForm = {

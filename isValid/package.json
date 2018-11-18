@@ -1,4 +1,0 @@
-{
-  "main": "../lib/isValid.js",
-  "module": "../es/isValid.js"
-}

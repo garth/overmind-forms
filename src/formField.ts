@@ -9,7 +9,7 @@ export interface FormField {
 
 export type IsValid = (value: string) => boolean
 
-export default (value = '', isValid: boolean | IsValid = true): FormField => {
+export const formField = (value = '', isValid: boolean | IsValid = true): FormField => {
   const showError: Derive<boolean, FormField> = field => !field.isPristine && !field.isValid
 
   return {

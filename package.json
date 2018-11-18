@@ -1,6 +1,6 @@
 {
   "name": "overmind-forms",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Forms implementation for overmind",
   "repository": "https://github.com/garth/overmind-forms.git",
   "author": "Garth Williams",

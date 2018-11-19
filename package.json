@@ -1,6 +1,6 @@
 {
   "name": "overmind-forms",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Forms implementation for overmind",
   "repository": "https://github.com/garth/overmind-forms.git",
   "author": "Garth Williams",
@@ -35,7 +35,7 @@
     "typescript": "^3.1.6"
   },
   "dependencies": {
-    "overmind": "^5.1.0-1542558803256",
+    "overmind": "^5.1.0",
     "tslib": "^1.9.3"
   }
 }

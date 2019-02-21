@@ -16,8 +16,8 @@
     "prebuild": "rimraf lib && rimraf es",
     "build:lib": "tsc --outDir lib --module commonjs  --preserveWatchOutput",
     "build:es": "tsc --outDir es --module es2015  --preserveWatchOutput",
-    "build": "yarn run build:lib & yarn run build:es",
-    "install": "yarn run prebuild & yarn run build",
+    "build": "yarn run build:lib; yarn run build:es",
+    "prepare": "yarn run prebuild; yarn run build",
     "lint": "tslint -c tslint.json -t verbose 'src/**/*.{ts,tsx}'",
     "prettier": "prettier --write \"src/**/*.{js,json,ts,tsx,scss,html}\""
   },

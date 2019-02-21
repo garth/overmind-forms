@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../src/index.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,SAAS,EAAE,MAAM,aAAa,CAAA;AACvC,OAAO,EAAE,IAAI,EAAE,MAAM,QAAQ,CAAA;AAC7B,eAAe,IAAI,CAAA","sourcesContent":["export { formField } from './formField'\nimport { form } from './form'\nexport default form\n"]}

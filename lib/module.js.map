@@ -1,0 +1,1 @@
+{"version":3,"file":"module.js","sourceRoot":"","sources":["../src/module.ts"],"names":[],"mappings":";;;AAAA,uBAAuB;AACvB,2DAAoC;AACpC,2DAAoC;AACpC,kBAAe,EAAE,OAAO,EAAE,OAAO,EAAE,CAAA","sourcesContent":["// exported form module\nimport * as actions from './actions'\nimport * as effects from './effects'\nexport default { actions, effects }\n"]}

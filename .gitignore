@@ -1,4 +1,6 @@
 node_modules
-lib
-es
+# - 100ideas commenting out 21 feb 19 to simplify installing from my git repo
+# - installing in non-typescript projects fails b/c tsc non-zero returns during compile step due to bad types
+# lib
+# es
 yarn-error.log

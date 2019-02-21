@@ -2,6 +2,86 @@
 
 A basic forms implementation based on the concepts from cerebral-forms.
 
+[codesandbox demo](https://codesandbox.io/s/github/100ideas/overmind-forms-demo/tree/codesandbox_v1)
+
+## 20 Feb 2019 patch notes (@100ideas)
+```bash
+# get overmind-forms demo app
+git clone https://github.com/100ideas/overmind-forms-example.git)
+
+# get patched overmind-forms (place in parallel directory to demo)
+git clone https://github.com/100ideas/overmind-forms.git)
+git checkout --track origin/hack
+
+# build and set up local package link
+cd overmind-forms
+yarn
+yarn build
+yarn link
+
+# complete link
+cd ../overmind-forms-example
+yarn link overmind-forms
+
+# install & start
+yarn
+yarn start
+```
+
+`overmind-forms/src/isFormValid.ts` is a derived state function built into `overmind-form` that makes `state.<your-forms-name>.isValid` reactive. 
+
+It is broken in `overmind-forms@0.0.4` + `overmind@15.1.2`. The function should trigger whenever any field element in the `overmind-form` has the property `isValid: false`, i.e. at a path-value like `state.[overmindForm].[formField].isValid: false`.
+
+But location of the isValid boolean is one level deeper, at `state.[overmindForm].[formField].isValid.isValid: false`. This patch fixes the problem by looking one level deeper. A better solution might have been to just move the boolean up one level.
+
+Also, the typescript types are too complicated for me, so currently the compiler complains about a type mismatch using this new path. Someone more familiar with typescript could probably fix that in a couple of minutes.
+
+Lastly, here is what the state tree managed by `overmind-form` looks like (in this case for the form in the demo app):
+
+```json
+//state: {
+  "loginForm": {
+    "isValid": false,
+    "email": {
+      "value": "",
+      "isPristine": true,
+      "isValid": {
+        "isValid": true  // maybe shouldn't be valid isPristine is true...
+      },
+      "showError": false
+    },
+    "password": {
+      "password": {
+        "value": "aa",
+        "isPristine": false,
+        "isValid": {
+          "isValid": false,
+          "failedRule": {
+            "name": "minLength",
+            "arg": 4
+          },
+          "errorMessage": null
+        },
+        "showError": false
+      },
+      "field3": {
+        "value": "[\"foo\", \"bar\", \"baz\", \"mip\"]",
+        "isPristine": true,
+        "isValid": {
+          "isValid": false,
+          "failedRule": {
+            "name": "isAlphanumeric"
+          },
+          "errorMessage": null
+        },
+        "showError": false
+      }
+    }
+//}
+```
+
+---
+
 ## Install
 
 ```

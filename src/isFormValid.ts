@@ -1,4 +1,4 @@
-// @ts-nocheck
+// @ts-ignore
 import { FormField, formField } from './formField'
 import { Derive } from 'overmind'
 

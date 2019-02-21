@@ -14,8 +14,8 @@
   "types": "lib/index.d.ts",
   "scripts": {
     "prebuild": "rimraf lib && rimraf es",
-    "build:lib": "tsc --outDir lib --module commonjs  --preserveWatchOutput",
-    "build:es": "tsc --outDir es --module es2015  --preserveWatchOutput",
+    "build:lib": "tsc --outDir lib --module commonjs  --preserveWatchOutput || echo done",
+    "build:es": "tsc true --outDir es --module es2015  --preserveWatchOutput || echo done",
     "build": "yarn run build:lib; yarn run build:es",
     "prepare": "yarn run prebuild; yarn run build",
     "lint": "tslint -c tslint.json -t verbose 'src/**/*.{ts,tsx}'",

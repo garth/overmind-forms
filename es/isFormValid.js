@@ -1,25 +1,18 @@
-// @ts-ignore
-import { FormField, formField } from './formField'
-import { Derive } from 'overmind'
-
-export const isFormValid: Derive<boolean, { [field: string]: FormField }> = form => {
-  console.log("isFormValid.ts:form", form)
-  let valid = true
-  Object.keys(form).find(fieldName => {
-    if (fieldName !== 'isValid' && form.hasOwnProperty(fieldName) && form[fieldName].hasOwnProperty('isValid') && !form[fieldName].isValid.isValid ) {
-      // type definition isn't quite right?, `form[fieldName].isValid` is [object Object], not 'boolean'
-      valid = form[fieldName].isValid.isValid
-      console.dir(`isFormValid triggered: '${fieldName}.isValid.isValid' is ${valid}\n\tform[${fieldName}].isValid:`, form[fieldName].isValid)
-      if (!valid) return true // stop looking when find a {isValid: false}
-    }
-  })
-
-  console.log("isFormValid.ts:form:valid", JSON.stringify(valid))
-  return valid
-}
-
-
-
+export const isFormValid = form => {
+    console.log("isFormValid.ts:form", form);
+    let valid = true;
+    Object.keys(form).find(fieldName => {
+        if (fieldName !== 'isValid' && form.hasOwnProperty(fieldName) && form[fieldName].hasOwnProperty('isValid') && !form[fieldName].isValid.isValid) {
+            // type definition isn't quite right?, `form[fieldName].isValid` is [object Object], not 'boolean'
+            valid = form[fieldName].isValid.isValid;
+            console.dir(`isFormValid triggered: '${fieldName}.isValid.isValid' is ${valid}\n\tform[${fieldName}].isValid:`, form[fieldName].isValid);
+            if (!valid)
+                return true; // stop looking when find a {isValid: false}
+        }
+    });
+    console.log("isFormValid.ts:form:valid", JSON.stringify(valid));
+    return valid;
+};
 // -------------------------------------------------
 // node_modules/overmind-forms/es/isFormValid.js
 //
@@ -52,8 +45,6 @@ export const isFormValid: Derive<boolean, { [field: string]: FormField }> = form
 // }
 //
 // --------------------------------
-
-
 // const mock2 = {
 //   "loginForm": {
 //     "isValid": true,
@@ -72,9 +63,9 @@ export const isFormValid: Derive<boolean, { [field: string]: FormField }> = form
 //     }
 //   }
 // }
-
 // isFormValid(mock2, {}) //?
 // isFormValid(mockForm, {}) //?
 /*
 
 */
+//# sourceMappingURL=isFormValid.js.map
